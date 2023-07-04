@@ -61,6 +61,7 @@
     <p class="mt-5">
       Your username is <span class="text-success">@{$userData.username}</span>
     </p>
+    <a class="btn btn-accent mt-3" href="/login/photo">→</a>
   {:else}
     <form class="w-[80%]" on:submit|preventDefault={confirmUsername}>
       <div class="w-full flex justify-center gap-2">
@@ -76,7 +77,7 @@
             class:input-success={isAvailable && isValid && !loading}
           />
           {#if loading}
-            <p class="text-secondary w-[250px]">
+            <p class="text-primary font-bold w-[250px]">
               Checking availability of @{username}...
             </p>
           {/if}

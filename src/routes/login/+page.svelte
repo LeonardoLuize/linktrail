@@ -12,7 +12,6 @@
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // 'CSRF-Token': csrfToken  // HANDLED by sveltekit automatically
       },
       body: JSON.stringify({ idToken }),
     });
@@ -24,18 +23,20 @@
   }
 </script>
 
-<h2 class="text-lg font-bol" class:text-gray-500={$user}>Authenticate to proceed</h2>
+<h2 class="text-lg font-bol" class:text-gray-500={$user}>
+  Authenticate to proceed
+</h2>
 
 <div class="h-[2px] rounded-full bg-gray-100" />
 
 {#if $user}
   <h2 class="card-title">Welcome, {$user.displayName}</h2>
-  <button
-    class="btn btn-secondary btn-outline btn-sm"
-    on:click={() => signOutSSR()}
-  >
-    Sign Out
-  </button>
+  <div class="flex gap-3">
+    <button class="btn btn-secondary btn-md" on:click={() => signOutSSR()}>
+      Sign Out
+    </button>
+    <a href="/login/username" class="btn btn-primary btn-md">→</a>
+  </div>
 {:else}
   <button class="btn btn-primary" on:click={signInWithGoogle}>
     Sign In With Google

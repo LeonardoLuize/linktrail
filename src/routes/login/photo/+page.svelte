@@ -28,13 +28,14 @@
 
   <form class="max-w-screen-md w-full">
     <div class="form-control w-full max-w-xs my-10 mx-auto text-center">
-      <img
-        src={previewURL ?? $userData?.photoURL ?? "/user.png"}
-        alt="photoURL"
-        width="256"
-        height="256"
-        class="mx-auto"
-      />
+      <div class="mx-auto rounded-full bg-cover aspect-square overflow-hidden">
+        <img
+          src={previewURL ?? $userData?.photoURL ?? "/user.png"}
+          alt="photoURL"
+          width="100"
+          height="100"
+        />
+      </div>
       <label for="photoURL" class="label">
         <span class="label-text">Pick a file</span>
       </label>
@@ -47,10 +48,12 @@
       />
       {#if uploading}
         <p>Uploading...</p>
-        <progress class="progress progress-info w-56 mt-6" />
+        <progress class="progress progress-success w-full mt-6" />
       {/if}
     </div>
   </form>
 
-  <a href={`/${$userData?.username}`} class="btn btn-primary"> Finish </a>
+  <a href={`/${$userData?.username}`} class="btn btn-primary btn-md">
+    Finish
+  </a>
 </AuthCheck>

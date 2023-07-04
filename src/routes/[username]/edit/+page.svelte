@@ -120,33 +120,42 @@
         />
         <div class="my-4">
           {#if !titleIsValid}
-            <p class="text-error text-xs">Must have valid title</p>
+            <p class="text-error text-sm">• Must have valid title</p>
           {/if}
           {#if !urlIsValid}
-            <p class="text-error text-xs">Must have a valid URL</p>
+            <p class="text-error text-sm">• Must have a valid URL</p>
           {/if}
           {#if formIsValid}
-            <p class="text-success text-xs">Looks good!</p>
+            <p class="text-success text-sm">Looks good!</p>
           {/if}
         </div>
 
-        <button
-          disabled={!formIsValid}
-          type="submit"
-          class="btn btn-success block">Add Link</button
-        >
+        <div class="flex justify-end items-center gap-2">
+          <button
+            disabled={!formIsValid}
+            type="submit"
+            class="btn btn-primary block">Add Link</button
+          >
 
-        <button type="button" class="btn btn-xs my-4" on:click={cancelLink}
-          >Cancel</button
-        >
+          <button type="button" class="btn my-4" on:click={cancelLink}
+            >Cancel</button
+          >
+        </div>
       </form>
     {:else}
       <button
         on:click={() => (showForm = true)}
-        class="btn btn-outline btn-info block mx-auto my-4"
+        class="btn btn-primary block mx-auto my-4"
       >
-        Add a Link
+        New Link
       </button>
     {/if}
   {/if}
 </main>
+
+<a
+  href={`/${$userData?.username}`}
+  class="btn btn-secondary absolute top-5 left-5"
+>
+  ← Profile
+</a>
