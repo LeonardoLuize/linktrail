@@ -1,38 +1,43 @@
-# create-svelte
+<h1 align="center"><strong>Link</strong>Trail</h1>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+<h4 align="center"> 
+	- Status: ✅ -
+</h4>
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+### ☑️ About
+---
+This GitHub repository is dedicated to the development of LinkTrail, a platform built using SvelteKit and Firebase. LinkTrail provides a seamless and intuitive experience for users to create and manage their personalized profiles, consolidating all their important links in one central hub.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### 🔌 Running the project
+---
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To run the project, you need to create a `.env` file similar to the `.env.example` file:
 
 ```bash
+# Download Dependencies
+npm install
+
+# run server...
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+### 🔋 Technologies
+---
 
-To create a production version of your app:
+- [SvelteKit](https://kit.svelte.dev)
+- [Firebase](https://firebase.google.com/docs)
 
-```bash
-npm run build
-```
+### 🎲 Made by
+---
 
-You can preview the production build with `npm run preview`.
+<a href="https://github.com/LeonardoLuize">
+ <img src="https://avatars.githubusercontent.com/u/74014082?v=4" width="100px;"/>
+ <br />
+ <sub><b>Leonardo Luize</b></sub></a> <a href="https://github.com/LeonardoLuize" >💻</a>
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+Feito por Leonardo Luize 😁
+
+[![Linkedin Badge](https://img.shields.io/badge/-Leonardo-blue?style=rounded&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/leonardoluize/)](https://www.linkedin.com/in/leonardoluize/) 
+[![Gmail Badge](https://img.shields.io/badge/-leonardo.luize2@gmail.com-c14438?style=rounded&logo=Gmail&logoColor=white&link=mailto:leonardo.luize2@gmail.com)](mailto:leonardo.luize2@gmail.com)
