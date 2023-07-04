@@ -8,15 +8,20 @@
   }
 </script>
 
-<h2>login</h2>
+<h2 class="text-lg font-bol" class:text-gray-500={$user}>Authenticate to proceed</h2>
+
+<div class="h-[2px] rounded-full bg-gray-100" />
 
 {#if $user}
   <h2 class="card-title">Welcome, {$user.displayName}</h2>
-  <button class="btn btn-warning" on:click={() => signOut(auth)}
-    >Sign Out</button
+  <button
+    class="btn btn-secondary btn-outline btn-sm"
+    on:click={() => signOut(auth)}
   >
+    Sign Out
+  </button>
 {:else}
-  <button class="btn btn-primary" on:click={signInWithGoogle}
-    >Sign In With Google</button
-  >
+  <button class="btn btn-primary" on:click={signInWithGoogle}>
+    Sign In With Google
+  </button>
 {/if}
