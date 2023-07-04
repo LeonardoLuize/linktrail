@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import UserLink from "$lib/components/UserLink.svelte";
   import SortableList from "$lib/components/SortableList.svelte";
+  import UserLink from "$lib/components/UserLink.svelte";
   import { db, userData, user } from "$lib/firebase";
   import {
     arrayRemove,
@@ -30,6 +30,7 @@
   const formData = writable(formDefaults);
 
   let showForm = false;
+  let isPublished: boolean;
 
   $: urlIsValid = $formData.url.match(/^(ftp|http|https):\/\/[^ "]+$/);
   $: titleIsValid = $formData.title.length < 20 && $formData.title.length > 0;
@@ -71,6 +72,14 @@
       links: arrayRemove(item),
     });
   }
+
+  async function updateProfileStatus() {
+    const userRef = doc(db, "users", $user!.uid);
+
+    await updateDoc(userRef, {
+      published: !$userData?.published
+    });
+  }
 </script>
 
 <main class="max-w-xl mx-auto">
@@ -79,6 +88,23 @@
       Edit your Profile
     </h1>
 
+    <div class="flex w-full justify-center my-5 flex-col">
+      <a href="/login/photo" class="btn btn-secondary"> Change Photo </a>
+
+      <div class="form-control w-52">
+        <label class="cursor-pointer label">
+          <span class="label-text"
+            >{$userData?.published ? "Public profile" : "Private profile"}</span
+          >
+          <input
+            type="checkbox"
+            class="toggle toggle-primary"
+            checked={$userData.published}
+            on:change={updateProfileStatus}
+          />
+        </label>
+      </div>
+    </div>
     <SortableList list={$userData?.links} on:sort={sortList} let:item let:index>
       <div class="group relative">
         <UserLink {...item} />
@@ -145,17 +171,10 @@
     {:else}
       <button
         on:click={() => (showForm = true)}
-        class="btn btn-primary block mx-auto my-4"
+        class="btn btn-primary btn-outline btn-lg block mx-auto my-4"
       >
-        New Link
+        Add Link
       </button>
     {/if}
   {/if}
 </main>
-
-<a
-  href={`/${$userData?.username}`}
-  class="btn btn-secondary absolute top-5 left-5"
->
-  ← Profile
-</a>

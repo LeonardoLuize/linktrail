@@ -53,7 +53,7 @@
     </div>
   </form>
 
-  <a href={`/${$userData?.username}`} class="btn btn-primary btn-md">
+  <a href={`/${$userData?.username}/edit`} class="btn btn-primary btn-md">
     Finish
   </a>
 </AuthCheck>
